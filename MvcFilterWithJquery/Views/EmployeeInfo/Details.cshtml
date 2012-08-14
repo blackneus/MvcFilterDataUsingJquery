@@ -1,0 +1,31 @@
+﻿@model MVC3_MasterDetailsUI.Models.EmployeeInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>EmployeeInfo</legend>
+
+    <div class="display-label">EmpName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmpName)
+    </div>
+
+    <div class="display-label">Salary</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Salary)
+    </div>
+
+    <div class="display-label">DeptName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DeptName)
+    </div>
+
+    <div class="display-label">Designation</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Designation)
+    </div>
+</fieldset>

@@ -1,0 +1,56 @@
+﻿@model MVC3_MasterDetailsUI.Models.EmployeeInfo
+
+<fieldset>
+    <legend>EmployeeInfo</legend>
+
+    <table>
+        <tr>
+            <td>
+                    <div class="display-label">EmpName</div>
+            </td>
+            <td>
+                <div class="display-field">
+                        @Html.DisplayFor(model => model.EmpName)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+    <div class="display-label">Salary</div>
+
+            </td>
+            <td>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Salary)
+    </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+    <div class="display-label">DeptName</div>
+
+            </td>
+            <td>
+
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DeptName)
+    </div>
+
+            </td>
+        </tr>
+<tr>
+    <td>
+    <div class="display-label">Designation</div>
+
+    </td>
+    <td>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Designation)
+    </div>
+
+    </td>
+</tr>
+        </table>
+</fieldset>
+ 

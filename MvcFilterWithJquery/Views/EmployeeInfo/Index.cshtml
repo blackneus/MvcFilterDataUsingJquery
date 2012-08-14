@@ -1,0 +1,113 @@
+﻿@model IEnumerable<MVC3_MasterDetailsUI.Models.EmployeeInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<style>
+    .background {
+     background-color:Red;
+     font-weight:700;
+    }
+</style> 
+
+<script src="@Url.Content("~/Scripts/jquery-1.6.2.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //S1: Get the Table row <tr>
+        var tr = $('#tlbEmpinfo').find('tr');
+        //S2: Bind 'click' event for the <tr>
+        tr.bind('click', function (e) {
+            //S3: Add the css class
+            $(this).addClass('background');
+            //S4: Read the Value for the zeroth index cell in the clicked <tr> 
+            var EmpNo = $(this).closest('tr').children('td:eq(0)').text();
+            //S5: Make an ajax call for Edit Action from the Controller.
+            $.ajax({
+                type: "GET",
+                url: "/EmployeeInfo/Edit/" + EmpNo,
+                 dataType:"html",
+                 success: function (evt) {
+                    $('#employeeinfo').html(evt);
+                },
+                error: function (req, status, error) {
+                    alert("Error!Occured");
+                }
+            });
+
+            
+        });
+        tr.bind('mouseleave', function (e) {
+            $(this).removeClass('background');
+        });
+    });
+</script>
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table>
+    <tr>
+        <td>
+
+<table id="tlbEmpinfo">
+    <tr>
+         <th>
+            EmpNo
+        </th>
+        <th>
+            EmpName
+        </th>
+        <th>
+            Salary
+        </th>
+        <th>
+            DeptName
+        </th>
+        <th>
+            Designation
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+           <td>
+            @Html.DisplayFor(modelItem => item.EmpNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeptName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation)
+        </td>
+    </tr>
+}
+
+</table>
+        </td>
+        <td>
+            <div id="employeeinfo" title="Employee No"  
+                style="background-color:Yellow; border-bottom-width:thin">
+            </div>
+        </td>
+    </tr>
+
+</table>
+
+
+

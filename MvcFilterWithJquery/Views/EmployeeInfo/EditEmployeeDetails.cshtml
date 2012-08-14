@@ -1,0 +1,51 @@
+﻿@model MVC3_MasterDetailsUI.Models.EmployeeInfo
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>EmployeeInfo</legend>
+
+        @Html.HiddenFor(model => model.EmpNo)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmpName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmpName)
+            @Html.ValidationMessageFor(model => model.EmpName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Salary)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Salary)
+            @Html.ValidationMessageFor(model => model.Salary)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DeptName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DeptName)
+            @Html.ValidationMessageFor(model => model.DeptName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Designation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Designation)
+            @Html.ValidationMessageFor(model => model.Designation)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
