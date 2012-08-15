@@ -36,7 +36,7 @@ namespace MVC3_MasterDetailsUI.Controllers
             List<EmployeeInfo> Employees;
             if (emp.EmpName != null)
             {
-                Employees = (from Emp in objContext.EmployeeInfoes.ToList()
+                Employees = (from Emp in objContext.EmployeeInfoes
                              where Emp.EmpName.StartsWith(emp.EmpName)
                              select Emp).ToList();
             }
